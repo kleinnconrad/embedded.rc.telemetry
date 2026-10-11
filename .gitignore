@@ -1,0 +1,3 @@
+# Virtual environment created by uv sync
+.venv/
+__pycache__/

@@ -14,18 +14,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v7
 
-      - name: Setup Python
-        uses: actions/setup-python@v7
+      # uv installs a Python version that satisfies requires-python in pyproject.toml
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
         with:
-          python-version: "3.14"
-          cache: pip
-          cache-dependency-path: requirements.txt
+          enable-cache: true
 
+      # --locked fails if uv.lock does not match pyproject.toml
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: uv sync --locked
 
       - name: Run Fetch Script
-        run: python scripts/fetch_reddit.py
+        run: uv run --locked python scripts/fetch_reddit.py
 
       # The script only rewrites the file when the comments changed
       - name: Commit and Push Changes
