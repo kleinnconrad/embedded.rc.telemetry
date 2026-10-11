@@ -40,6 +40,7 @@ Local telemetry system for the RC car Carten T410R (vehicle build: [RC100 reposi
 | [`src/tests/`](src/tests/readme.md) | Test sketches for each component |
 | [`testrun/`](testrun/readme.md) | In-vehicle test protocol and photos |
 | [`reddit/`](reddit/reddit_feedback.md) | Synchronized feedback from the Reddit thread |
+| [`pyproject.toml`](pyproject.toml), `uv.lock` | Python version and dependencies of the scripts |
 
 ## 3. Bill of Materials (BOM)
 The as-built configuration consists of the following components:
@@ -148,12 +149,18 @@ The project was discussed in the [r/esp32 thread](https://www.reddit.com/r/esp32
 
 * **Script (`scripts/fetch_reddit.py`):** Reads the RSS feed of the thread, converts the comments to plain text and writes them to [`reddit/reddit_feedback.md`](reddit/reddit_feedback.md). The file is only rewritten when the comments have changed.
 * **Workflow (`.github/workflows/reddit-sync.yml`):** Runs the script and commits a changed file to the branch the workflow was started on. The workflow has no schedule and is started manually.
-* **Dependencies:** `requirements.txt` (kept up to date by Dependabot).
+* **Dependencies:** `pyproject.toml` declares the dependencies and the required Python version; `uv.lock` pins the complete dependency tree. After changing `pyproject.toml`, run `uv lock` and commit both files. Dependabot updates both files weekly.
 
-Manual start:
+Manual start of the workflow:
 1. Open the "Actions" tab of the GitHub repository.
 2. Select the "Fetch Reddit Feedback" workflow.
 3. Click "Run workflow".
+
+Local run (requires [uv](https://docs.astral.sh/uv/)):
+
+```
+uv run python scripts/fetch_reddit.py
+```
 
 ## 8. License
 This project is licensed under the [MIT License](LICENSE).
