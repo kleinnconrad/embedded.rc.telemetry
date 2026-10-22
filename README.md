@@ -19,7 +19,7 @@
 
 <img src="testrun/vehicle_test/PXL_20260518_144728325.jpg" height="300" alt="Telemetry unit connected to the receiver" />
 
-Local telemetry system for the RC car Carten T410R (vehicle build: [RC100 repository](https://github.com/kleinnconrad/RC100)). An ESP32 records thermal and dynamic parameters during driving and writes them to a microSD card.
+Local telemetry system for the RC car Carten T410R (vehicle build: [small-scale-rc-speedrun](https://github.com/kleinnconrad/small-scale-rc-speedrun)). An ESP32 records thermal and dynamic parameters during driving and writes them to a microSD card.
 
 **Recorded Metrics:**
 * **Temperature:** Motor and ESC temperature via two DS18B20 sensors on a shared 1-Wire bus. Measuring range -55 °C to +125 °C, accuracy ±0.5 °C (-10 °C to +85 °C), 12-bit resolution.
