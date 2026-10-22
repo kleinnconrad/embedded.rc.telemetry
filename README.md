@@ -17,7 +17,7 @@
 
 ## 1. Project Description and Specifications
 
-<img src="testrun/vehicle_test/PXL_20260518_144521252.jpg" height="300" alt="Telemetry unit next to the vehicle" /> <img src="testrun/vehicle_test/PXL_20260518_144728325.jpg" height="300" alt="Telemetry unit connected to the receiver" />
+<img src="testrun/vehicle_test/PXL_20260518_144728325.jpg" height="300" alt="Telemetry unit connected to the receiver" />
 
 Local telemetry system for the RC car Carten T410R (vehicle build: [RC100 repository](https://github.com/kleinnconrad/RC100)). An ESP32 records thermal and dynamic parameters during driving and writes them to a microSD card.
 
